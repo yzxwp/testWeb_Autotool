@@ -7,6 +7,7 @@ from logic import get_idcard
 from logic import get_phone
 from logic import get_zhongzhengma
 from logic import get_scoure_card
+from gevent import pywsgi
 
 app = Flask(__name__)
 
@@ -106,4 +107,8 @@ def index10():
 
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=80)
+    # app.run(host="127.0.0.1", port=80)
+    #106.14.227.119
+    # server = pywsgi.WSGIServer(('192.168.0.114', 80), app)
+    server = pywsgi.WSGIServer(('106.14.227.119', 80), app)
+    server.serve_forever()
