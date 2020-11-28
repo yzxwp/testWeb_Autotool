@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载需要10秒的页面</title>
+    <script type="text/javascript">
+        function sleep4sec(sec) {
+            setTimeout(function inner() {
+                alert("haha, sleep:" + (sec*1000).toString());
+            }, sec*1000);
+        }
+    </script>
+</head>
+<body onload="sleep4sec(4)">
+    <h1>加载等待10秒 - 10 Seconds Loading Page</h1>
+    <hr size="8" color="gray">
+     <a href="test_all.html">返回上一页</a>
+<a href="index1.html">
+    <h3>返回首页</h3>
+</a>
+</body>
+</html>

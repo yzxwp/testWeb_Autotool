@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index8():
+def index():
     # 姓名
     name = names.random_name()
     # 车架号
@@ -53,6 +53,56 @@ def index8():
 
     }
     return render_template('index.html', **locals())
+
+
+@app.route('/index1.html')
+def index1():
+    return render_template("index1.html")
+
+
+@app.route('/test_all.html')
+def index2():
+    return render_template('test_all.html')
+
+
+@app.route('/location.html')
+def index3():
+    return render_template('location.html')
+
+
+@app.route('/webelements.html')
+def index4():
+    return render_template('webelements.html')
+
+
+@app.route('/10seconds.html')
+def index5():
+    return render_template('10seconds.html')
+
+
+@app.route('/frame.html')
+def index6():
+    return render_template('frame.html')
+
+
+@app.route('/frame_func.html')
+def index7():
+    return render_template('frame_func.html')
+
+
+@app.route('/frame_iframe.html')
+def index8():
+    return render_template('frame_iframe.html')
+
+
+@app.route('/frame_content.html')
+def index9():
+    return render_template('frame_content.html')
+
+
+@app.route('/monkey.html')
+def index10():
+    return render_template('monkey.html')
 
 
 if __name__ == '__main__':

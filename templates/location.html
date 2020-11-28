@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面元素定位练习页面</title>
+    <script type="text/javascript">
+        let user_array = new Array();
+        let counter = 0;
+
+        function mockRegister() {
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirm_password = document.getElementById("confirm_password").value;
+            let ele_regmsg = document.getElementById("regmsg");
+            if (password !== confirm_password) {
+                ele_regmsg.innerText = "两次输入的密码不一致";
+            } else {
+                let new_user = {uid: counter, username: username, password: password, email: email};
+                user_array.push(new_user);
+                ele_regmsg.innerText = "注册成功:" + JSON.stringify(new_user);
+                counter += 1;
+            }
+        }
+
+        function resetRegister() {
+            document.getElementById("regmsg").innerText = '';
+        }
+
+        function searchUserByID(search_type) {
+            let uid = document.getElementById('search_uid').value;
+            let username = document.getElementById('search_uname').value;
+            let email = document.getElementById('search_email').value;
+            console.log("User Input: " + typeof uid + " " + uid);
+
+            for (let i = 0; i < user_array.length; i++) {
+                if (search_type === "id" && user_array[i].uid.toString() === uid) {
+                    document.getElementById("search_msg").innerText = JSON.stringify(user_array[i]);
+                    return;
+                } else if (search_type === "username" && user_array[i].username.toString() === username) {
+                    document.getElementById("search_msg").innerText = JSON.stringify(user_array[i]);
+                    return;
+                } else if (search_type === "email" && user_array[i].email.toString() === email) {
+                    document.getElementById("search_msg").innerText = JSON.stringify(user_array[i]);
+                    return;
+                }
+            }
+            document.getElementById("search_msg").innerText = "用户不存在";
+        }
+    </script>
+</head>
+<body>
+<h1> UI自动化定位方法练习</h1>
+<hr size="8" color="gray">
+<div>
+    <span style="font-size: 28px;">用户注册</span> <br/>
+    <form>
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><input id="username" name="username" class="login_input"/></td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td><input id="email" name="email" class="login_input"/></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input id="password" name="password" class="login_input"></td>
+            </tr>
+            <tr>
+                <td>确认密码</td>
+                <td><input id="confirm_password" name="password" class="login_input"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="注册" onclick="mockRegister()">
+                    <input type="reset" value="重置" onclick="resetRegister()">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <span>需要验证的提示信息：</span><label id="regmsg"></label>
+</div>
+<hr>
+<div>
+    <span style="font-size: 28px;">用户查询</span> <br/>
+    <div>
+        <span>用户ID:</span>
+        <input id="search_uid" type="text">
+        <input type="button" value="查询" onclick="searchUserByID('id')">
+    </div>
+    <div>
+        <span>用户名:</span>
+        <input id="search_uname" type="text">
+        <input type="button" value="查询" onclick="searchUserByID('username')">
+    </div>
+    <div>
+        <span>邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
+        <input id="search_email" type="text">
+        <input type="button" value="查询" onclick="searchUserByID('email')">
+    </div>
+    <span>需要验证的提示信息：</span><label id="search_msg"></label>
+</div>
+<hr>
+<div>
+    <span style="font-size: 28px;">出勤天数计算</span> <br/>
+    <table width="500" , border="1" , id="table">
+        <tr>
+            <td>项目组</td>
+            <td>10月</td>
+            <td>11月</td>
+        </tr>
+        <tr>
+            <td>02组</td>
+            <td>21</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <td>03组</td>
+            <td>22</td>
+            <td>28</td>
+        </tr>
+        <tr>
+            <td>04组</td>
+            <td>23</td>
+            <td>27</td>
+        </tr>
+        <tr>
+            <td>05组</td>
+            <td>24</td>
+            <td>25</td>
+        </tr>
+    </table>
+    <span style="font-size: 18px;">Q: 请计算10月份出勤总天数，11月份出勤总天数</span>
+</div>
+<a href="test_all.html">返回上一页</a>
+<a href="index1.html">
+    <h3>返回首页</h3>
+</a>
+</body>
+</html>
