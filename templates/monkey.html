@@ -1,40 +1,373 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>monkey命令生产</title>
+    <title>Monke命令生成工具</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style type="text/css">
-        div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        select {
+            width: auto;
+            padding: 0 41%;
+            margin: 0;
         }
-        h1{
+
+        option {
             text-align: center;
         }
-        h3{
+
+        span {
+            display: block;
             text-align: right;
         }
     </style>
 </head>
 <body>
-<div>
-    <table>
-        <tr>
-            <td>
-                <h1>正在开发中，预计2021年1月前上线</h1>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                <a href="index1.html">
-                    <h3>返回首页</h3>
-                </a>
-            </td>
-        </tr>
-    </table>
+<div id="fdiv">
+    <from id="from1">
+        <table id="table">
+            <tr>
+                <td>
+                    <span>测试程序包名：</span>
+                </td>
+                <td>
+                    <!--@click="getpack"-->
+                    <input type="text" v-model="package" id="pacage">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>每个行为的延时(ms)</span>
+                </td>
+                <td>
+                    <input type="text" v-model="times_text" id="times_texts">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>执行次数：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="count" id="count">
+                </td>
+            </tr>
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--<span>日志级别：</span>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<select id="log" size="1">-->
+                        <!--<option value="log0">0</option>-->
+                        <!--<option value="log1">1</option>-->
+                        <!--<option value="log2" selected="selected">2</option>-->
+                    <!--</select>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>
+                    <span>重现种子seed：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="seed" id="seed">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>触摸事件touch：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="touch" id="touch">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>动作事件motion：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="motion" id="motion">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>轨迹球事件trackball：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="trackball" id="trackball">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>基本导航事件nav：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="nav" id="nav">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>主要导航事件najornav：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="najornav" id="najornav">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>系统关键事件syskeys：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="syskeys" id="syskeys">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>运行包内activity%appswitch：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="appswitch" id="appswitch">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>其他类型事件anyevent：</span>
+                </td>
+                <td>
+                    <input type="text" v-model="anyevent" id="anyevent">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>忽略崩溃：</span>
+                </td>
+                <td>
+                    <input type="radio" name="crashes" value="yes" checked="checked">是
+                    <!--<input type="radio" name="crashes" value="no">否-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>忽略超时：</span>
+                </td>
+                <td>
+                    <input type="radio" name="timeouts" value="yes" checked="checked">是
+                    <!--<input type="radio" name="timeouts" value="no">否-->
+                </td>
+            </tr>
+            <!--<tr>-->
+            <!--<td>-->
+            <!--<span>忽略应用程序内可能出现的错误：</span>-->
+            <!--</td>-->
+            <!--<td>-->
+            <!--<input type="radio" name="exceptions " value="yes">是-->
+            <!--<input type="radio" name="exceptions " value="no" checked="checked">否-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td>-->
+            <!--<span>当应用程序发生错误时，应用程序停止并保持当前状态：</span>-->
+            <!--</td>-->
+            <!--<td>-->
+            <!--<input type="radio" name="error " value="yes">是-->
+            <!--<input type="radio" name="error " value="no" checked="checked">否-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td>-->
+            <!--<span>指定是否检视并报告应用程序发生崩溃的本地代码：</span>-->
+            <!--</td>-->
+            <!--<td>-->
+            <!--<input type="radio" name="nativ " value="yes">是-->
+            <!--<input type="radio" name="nativ " value="no" checked="checked">否-->
+            <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>
+                    <span>正确日志保存路径：</span>
+                </td>
+                <td>
+                    <input type="text" name="nativ " v-model="success" id="success">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>错误日志保存路径：</span>
+                </td>
+                <td>
+                    <input type="text" name="nativ " v-model="error" id="error">
+                </td>
+                <td>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                </td>
+                <td>
+                    <input type="button" value="生成monkey命令" class="get_monkey" @click="getpack">
+                </td>
+            </tr>
+        </table>
+    </from>
+    <div id="sdiv">
+        <input type="text" v-model="monkey_text" id="test" style="width: 99%">
+    </div>
+    <div id="ediv">
+        <h1>
+            {{monkey_text}}
+        </h1>
+    </div>
+    <div id="tdiv">
+        <button id="copy" @click="copy">复制</button>
+    </div>
 </div>
+
+
+<script>
+    var fdiv = new Vue({
+        el: "#fdiv",
+        data: {
+            head: "adb shell monkey ",
+            base: {
+                b_crashes: " --ignore-crashes ",
+                b_timeouts: " --ignore-timeouts ",
+                b_view: " -v -v -v ",
+                b_package: "",
+                b_times_text: "",
+                b_count: "",
+                b_seed: "",
+                b_touch: "",
+                b_motion: "",
+                b_trackball: "",
+                b_nav: "",
+                b_najornav: "",
+                b_syskeys: "",
+                b_appswitch: "",
+                b_anyevent: "",
+                b_success: "",
+                b_error: ""
+            },
+            monkey_text: "",
+            package: "请输入包名",
+            times_text: "请输入时间",
+            count: "请输入执行次数（正整数）",
+            seed: "请输入重复种子（正整数）",
+            touch: "touch事件",
+            motion: "motion事件",
+            trackball: "trackball事件",
+            nav: "nav事件",
+            najornav: "najornav事件",
+            syskeys: "syskeys事件",
+            appswitch: "appswitch事件",
+            anyevent: "anyevent事件",
+            success: "D:/sucess_log.txt",
+            error: "D:/error_log.txt"
+        },
+        methods: {
+            getpack: function () {
+                if (this.package != "请输入包名") {
+                    this.base["b_package"] = " -p " + this.package
+                } else {
+                    alert("请输入包名，否则生成的monkey命令没有任何意义")
+                    this.monkey_text = "请输入包名，否则生成的monkey命令没有任何意义"
+                }
+                if (this.times_text != "请输入时间") {
+                    var j = parseInt(this.times_text)
+                    if (j > 0) {
+                        this.base["b_times_text"] = "  --throttle  " + j
+                    }
+                }
+                if (this.count != "请输入执行次数（正整数）") {
+                    var j = parseInt(this.count)
+                    if (j > 0) {
+                        // var count=this.count.split('.')[0]
+                        this.base["b_count"] = " " + j
+                    } else {
+                        alert("请输入执行次数（正整数），否则生成的monkey命令没有任何意义")
+                        this.monkey_text = "请输入执行次数（正整数），否则生成的monkey命令没有任何意义"
+                    }
+                } else {
+                    alert("请输入执行次数（正整数），否则生成的monkey命令没有任何意义")
+                    this.monkey_text = "请输入执行次数（正整数），否则生成的monkey命令没有任何意义"
+                }
+
+                if (this.seed != "请输入重复种子（正整数）") {
+                    var j = parseInt(this.seed)
+                    if (j > 0) {
+                        this.base["b_seed"] = " -s " + j
+                    }
+                }
+                if (this.touch != "touch事件）") {
+                    var j = parseInt(this.touch)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_touch"] = " --pct-touch " + j
+                    }
+                }
+                if (this.motion != "motion事件）") {
+                    var j = parseInt(this.motion)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_motion"] = " --pct-motion " + j
+                    }
+                }
+                if (this.trackball != "trackball事件）") {
+                    var j = parseInt(this.trackball)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_trackball"] = " --pct-trackball " + j
+                    }
+                }
+                if (this.nav != "nav事件）") {
+                    var j = parseInt(this.nav)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_nav"] = " --pct-nav " + j
+                    }
+                }
+                if (this.najornav != "najornav事件）") {
+                    var j = parseInt(this.najornav)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_najornav"] = " --pct-majornav " + j
+                    }
+                }
+                if (this.syskeys != "syskeys事件）") {
+                    var j = parseInt(this.syskeys)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_syskeys"] = " --pct-syskeys " + j
+                    }
+                }
+                if (this.appswitch != "appswitch事件）") {
+                    var j = parseInt(this.appswitch)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_appswitch"] = " --pct-appswitch " + j
+                    }
+                }
+                if (this.anyevent != "anyevent事件）") {
+                    var j = parseInt(this.anyevent)
+                    if (j > 0 && j <= 100) {
+                        this.base["b_anyevent"] = " --pct-anyevent " + j
+                    }
+                }
+                if (this.success != "") {
+                    this.base["b_success"] = " 1> " + this.success
+                }
+                if (this.error != "") {
+                    this.base["b_error"] = " 2> " + this.error
+                }
+                if (this.monkey_text != "") {
+                    this.monkey_text = ""
+                } else {
+                    this.monkey_text = this.head + this.base["b_times_text"] + this.base["b_crashes"] + this.base["b_timeouts"] + this.base["b_package"] + " " + this.base["b_count"] +
+                        this.base["b_seed"] + this.base["b_touch"] + this.base["b_motion"] + this.base["b_trackball"] + this.base["b_nav"]
+                        + this.base["b_najornav"] + this.base["b_syskeys"] + this.base["b_appswitch"] + this.base["b_anyevent"] + this.base["b_view"]
+                        + this.base["b_success"] + this.base["b_error"]
+                }
+                // console.log(this.monkey_text)
+            },
+
+            copy: function () {
+                var input1 = document.createElement("input");   // 直接构建input
+                input1.value = this.monkey_text;  // 设置内容
+                document.body.appendChild(input1)
+                input1.select();   // 选择实例内容
+                document.execCommand("Copy");   // 执行复制
+                console.log(input1.value)
+                document.body.removeChild(input1); // 删除临时实例
+                // console.log(this.monkey_text)
+            }
+        }
+    })
+</script>
 </body>
 </html>
