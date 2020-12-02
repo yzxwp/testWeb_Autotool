@@ -19,6 +19,13 @@
             display: block;
             text-align: right;
         }
+
+        #from1,#tdiv,#in,#sdiv {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -51,16 +58,16 @@
                 </td>
             </tr>
             <!--<tr>-->
-                <!--<td>-->
-                    <!--<span>日志级别：</span>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<select id="log" size="1">-->
-                        <!--<option value="log0">0</option>-->
-                        <!--<option value="log1">1</option>-->
-                        <!--<option value="log2" selected="selected">2</option>-->
-                    <!--</select>-->
-                <!--</td>-->
+            <!--<td>-->
+            <!--<span>日志级别：</span>-->
+            <!--</td>-->
+            <!--<td>-->
+            <!--<select id="log" size="1">-->
+            <!--<option value="log0">0</option>-->
+            <!--<option value="log1">1</option>-->
+            <!--<option value="log2" selected="selected">2</option>-->
+            <!--</select>-->
+            <!--</td>-->
             <!--</tr>-->
             <tr>
                 <td>
@@ -213,6 +220,11 @@
     </div>
     <div id="tdiv">
         <button id="copy" @click="copy">复制</button>
+    </div>
+    <div id="in">
+        <a href="index1.html">
+            <h3>返回首页</h3>
+        </a>
     </div>
 </div>
 
