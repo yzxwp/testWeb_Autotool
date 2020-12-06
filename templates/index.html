@@ -1,377 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>测试数据自动生成</title>
-    <style type="text/css">
-        h1{
-            text-align: center;
-        }
-        h3{
-            text-align: right;
-        }
-        #get_message_form{
-            display: flex;
-            justify-content: center;
-        }
-        .text_input {
-            height: 14px;
-            line-height: 14px;
-            border-radius: 5px;
-            padding: 10px 10px;
-            vertical-align: middle;
-            background: yellowgreen;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .test_button {
-            background: #A0A0A0;
-            text-align: center;
-            font-weight: 400;
-        }
-
-        p {
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-        }
-    </style>
+    <meta charset="utf-8"/>
+    <title>首页</title>
+    <!--<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // document.getElementById("username").value = {{name}}
-        // document.getElementById("id_card").value = {{id_card}}
-        // document.getElementById("phone").value = {{phone}}
-        // document.getElementById("tyshzxm").value = {{tyshzxm}}
-        // document.getElementById("zzjgdm").value = {{zhjgdm}}
-        // document.getElementById("vin").value = {{vin}}
-        // document.getElementById("zzm").value = {{zzm}}
-        // document.getElementById("gonghang").value = {{gonghang}}
-        // document.getElementById("nonghang").value = {{nonghang}}
-        // document.getElementById("jiaohang").value = {{jiaohang}}
-        // document.getElementById("zhonghang").value = {{zhonghang}}
-        // document.getElementById("jianshe").value = {{jianhang}}
-        $(function () {
-            //全部
-            $("#all_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("username").value = txt.split(".value =")[1].split("//")[0].trim()
-                        document.getElementById("id_card").value = txt.split(".value =")[2].split("//")[0].trim()
-                        document.getElementById("phone").value = txt.split(".value =")[3].split("//")[0].trim()
-                        document.getElementById("tyshzxm").value = txt.split(".value =")[4].split("//")[0].trim()
-                        document.getElementById("zzjgdm").value = txt.split(".value =")[5].split("//")[0].trim()
-                        document.getElementById("vin").value = txt.split(".value =")[6].split("//")[0].trim()
-                        document.getElementById("zzm").value = txt.split(".value =")[7].split("//")[0].trim()
-                        document.getElementById("gonghang").value = txt.split(".value =")[8].split("//")[0].trim()
-                        document.getElementById("nonghang").value = txt.split(".value =")[9].split("//")[0].trim()
-                        document.getElementById("jiaohang").value = txt.split(".value =")[10].split("//")[0].trim()
-                        document.getElementById("zhonghang").value = txt.split(".value =")[11].split("//")[0].trim()
-                        document.getElementById("jianshe").value = txt.split(".value =")[12].split("//")[0].trim()
-                    }
-                });
-            });
-            //姓名
-            $("#usernae_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("username").value = txt.split(".value =")[1].split("//")[0].trim()
-                    }
-                });
-            });
-            //身份证号码
-            $("#id_card_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("id_card").value = txt.split(".value =")[2].split("//")[0].trim()
-                    }
-                });
-            });
-            //电话号码
-            $("#phone_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("phone").value = txt.split(".value =")[3].split("//")[0].trim()
-                    }
-                });
-            });
-            //统一社会征信码
-            $("#tyshzxm_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("tyshzxm").value = txt.split(".value =")[4].split("//")[0].trim()
-                    }
-                });
-            });
-            //组织机构代码
-            $("#zzjgdm_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("zzjgdm").value = txt.split(".value =")[5].split("//")[0].trim()
-                    }
-                });
-            });
-            //车架号
-            $("#vin_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("vin").value = txt.split(".value =")[6].split("//")[0].trim()
-                    }
-                });
-            });
-            //中征码
-            $("#zzm_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("zzm").value = txt.split(".value =")[7].split("//")[0].trim()
-                    }
-                });
-            });
-            //工行
-            $("#gonghang_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("gonghang").value = txt.split(".value =")[8].split("//")[0].trim()
-                    }
-                });
-            });
-            //农行
-            $("#nonghang_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("nonghang").value = txt.split(".value =")[9].split("//")[0].trim()
-                    }
-                });
-            });
-            //交行
-            $("#jiaohang_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("jiaohang").value = txt.split(".value =")[10].split("//")[0].trim()
-                    }
-                });
-            });
-            //中行
-            $("#zhonghang_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("zhonghang").value = txt.split(".value =")[11].split("//")[0].trim()
-                    }
-                });
-            });
-            //建设
-            $("#jianshe_button").click(function () {
-                $.ajax({
-                    url: "",
-                    data: "data",
-                    dataType: "text",
-                    type: "post",
-                    success: function (txt) {
-                        document.getElementById("jianshe").value = txt.split(".value =")[12].split("//")[0].trim()
-                    }
-                });
-            });
-        })
-    </script>
-
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css"/>
+    <link rel="icon" type="image/x-icon" href="../static/ico/1616.ico"/>
 </head>
 <body>
 
-<h1>测试数据自动生成</h1>
-<form method="get" id="get_message_form">
-    <table>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <input type="button" id="all_button" value="重新获取全部的测试数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>用户姓名:</p>
-            </td>
-            <td>
-                <input id="username" name="username" class="text_input" value="{{name}}"/>
-            </td>
-            <td>
-                <input type="button" id="usernae_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>身份证号码:</p>
-            </td>
-            <td>
-                <input id="id_card" name="id_card" class="text_input" value="{{id_card}}"/>
-            </td>
-            <td>
-                <input type="button" id="id_card_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>电话号码:</p>
-            </td>
-            <td>
-                <input id="phone" name="phone" class="text_input" value="{{phone}}"/>
-            </td>
-            <td>
-                <input type="button" id="phone_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>社会统一征信码:</p>
-            </td>
-            <td>
-                <input id="tyshzxm" name="tyshzxm" class="text_input" value="{{tyshzxm}}"/>
-            </td>
-            <td>
-                <input type="button" id="tyshzxm_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>组织机构代码:</P>
-            </td>
-            <td>
-                <input id="zzjgdm" name="zzjgdm" class="text_input" value="{{zhjgdm}}"/>
-            </td>
-            <td>
-                <input type="button" id="zzjgdm_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>车辆车架号:</P>
-            </td>
-            <td>
-                <input id="vin" name="vin" class="text_input" value="{{vin}}"/>
-            </td>
-            <td>
-                <input type="button" id="vin_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>中征码:</P>
-            </td>
-            <td>
-                <input id="zzm" name="zzm" class="text_input" value="{{zzm}}"/>
-            </td>
-            <td>
-                <input type="button" id="zzm_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>工行银行卡号:</P>
-            </td>
-            <td>
-                <input id="gonghang" name="gonghang" class="text_input" value="{{gonghang}}"/>
-            </td>
-            <td>
-                <input type="button" id="gonghang_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>农行银行卡号:</P>
-            </td>
-            <td>
-                <input id="nonghang" name="nonghang" class="text_input" value="{{nonghang}}"/>
-            </td>
-            <td>
-                <input type="button" id="nonghang_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>交行银行卡号:</P>
-            </td>
-            <td>
-                <input id="jiaohang" name="jiaohang" class="text_input" value="{{jiaohang}}"/>
-            </td>
-            <td>
-                <input type="button" id="jiaohang_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>中行银行卡号:</P>
-            </td>
-            <td>
-                <input id="zhonghang" name="zhonghang" class="text_input" value="{{zhonghang}}"/>
-            </td>
-            <td>
-                <input type="button" id="zhonghang_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <P>建行银行卡号:</P>
-            </td>
-            <td>
-                <input id="jianshe" name="jianshe" class="text_input" value="{{jianhang}}"/>
-            </td>
-            <td>
-                <input type="button" id="jianshe_button" value="重新获取数据" class="test_button"/>
-            </td>
-        </tr>
+<div id="top_div">
+    <p><b>学习,进步,提高，质量，效率。
+    </b></p>
+</div>
+<div id="all_div">
+    <div id="ml">
+        <div id="data_div">
+            <a href="./message.html" id="data">
+                <h1><b>自动生成测试数据</b></h1>
+            </a>
+        </div>
+        <div id="ui_div">
+            <a href="./test_all.html" id="ui">
+                <h1><b>UI自动化练习</b></h1>
+            </a>
+        </div>
+        <div id="monkey_div">
+            <a href="./monkey.html" id="monkey">
+                <h1><b>自动生成monke命令</b></h1>
+            </a>
+        </div>
+        <div id="requests_div">
+            <a href="/api.html" id="requests">
+                <h1><b><abbr>API</abbr>测试练习</b></h1>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="gg">
+    <p><b>告知：自动生成的测试数据仅用来测试，禁止用于非法途径。告知：自动生成的测试数据仅用来测试，禁止用于非法途径。
+        告知：自动生成的测试数据仅用来测试，禁止用于非法途径。
+    </b></p>
+</div>
 
-    </table>
-</form>
-<a href="index1.html">
-   <h3>返回首页</h3>
-</a>
 </body>
 </html>

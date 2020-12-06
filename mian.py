@@ -12,53 +12,14 @@ from gevent import pywsgi
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    # 姓名
-    name = names.random_name()
-    # 车架号
-    vin = get_car_vin.random_vin()
-    # 身份证号码
-    id_card = get_idcard.ident_generator()
-    # 电话
-    phone = get_phone.phone_num()
-    # 中征码
-    zzm = get_zhongzhengma.ZZM()
-    # 组织机构代码
-    zhjgdm = get_scoure_card.create_organization()
-    # 统一社会信用代码
-    tyshzxm = get_scoure_card.create_social_credit()
-    # 中行
-    zhonghang = get_bank_card.gen_bank_card_zhongguo()
-    # 建行
-    jianhang = get_bank_card.gen_bank_card_jainshe()
-    # 农行
-    nonghang = get_bank_card.gen_bank_card_nonghang()
-    # 交行
-    jiaohang = get_bank_card.gen_bank_card_jiaotong()
-    # 工行
-    gonghang = get_bank_card.gen_bank_card_gonghang()
-    data = {
-        "name": name,
-        "vin": vin,
-        "id_card": id_card,
-        "phone": phone,
-        "zzm": zzm,
-        "zhjgdm": zhjgdm,
-        "tyshzxm": tyshzxm,
-        "zhonghang": zhonghang,
-        "jianhang": jianhang,
-        "nonghang": nonghang,
-        "jiaohang": jiaohang,
-        "gonghang": gonghang
-
-    }
-    return render_template('index.html', **locals())
+    return render_template('index.html')
 
 
-@app.route('/index1.html')
+@app.route('/message.html')
 def index1():
-    return render_template("index1.html")
+    return render_template("message.html")
 
 
 @app.route('/test_all.html')
@@ -106,9 +67,64 @@ def index10():
     return render_template('monkey.html')
 
 
+@app.route('/api.html')
+def index11():
+    return render_template('API.html')
+
+
+@app.route("/index.html")
+def index12():
+    return render_template('index.html')
+
+
+@app.route("/get_message", methods=['GET', 'POST'])
+def getMessage():
+    # 姓名
+    name = names.random_name()
+    # 车架号
+    vin = get_car_vin.random_vin()
+    # 身份证号码
+    id_card = get_idcard.ident_generator()
+    # 电话
+    phone = get_phone.phone_num()
+    # 中征码
+    zzm = get_zhongzhengma.ZZM()
+    # 组织机构代码
+    zhjgdm = get_scoure_card.create_organization()
+    # 统一社会信用代码
+    tyshzxm = get_scoure_card.create_social_credit()
+    # 中行
+    zhonghang = get_bank_card.gen_bank_card_zhongguo()
+    # 建行
+    jianhang = get_bank_card.gen_bank_card_jainshe()
+    # 农行
+    nonghang = get_bank_card.gen_bank_card_nonghang()
+    # 交行
+    jiaohang = get_bank_card.gen_bank_card_jiaotong()
+    # 工行
+    gonghang = get_bank_card.gen_bank_card_gonghang()
+    data = {
+        "name": name,
+        "vin": vin,
+        "id_card": id_card,
+        "phone": phone,
+        "zzm": zzm,
+        "zhjgdm": zhjgdm,
+        "tyshzxm": tyshzxm,
+        "zhonghang": zhonghang,
+        "jianhang": jianhang,
+        "nonghang": nonghang,
+        "jiaohang": jiaohang,
+        "gonghang": gonghang
+
+    }
+    return jsonify(data)
+
+
 if __name__ == '__main__':
-    # app.run(host="127.0.0.1", port=80)
+    app.run(host="127.0.0.1", port=80)
+    # 106.14.227.119
     #106.14.227.119
     # server = pywsgi.WSGIServer(('192.168.0.114', 80), app)
-    server = pywsgi.WSGIServer(('106.14.227.119', 80), app)
-    server.serve_forever()
+    # server = pywsgi.WSGIServer(('', 80), app)
+    # server.serve_forever()

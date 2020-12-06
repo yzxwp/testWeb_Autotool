@@ -1,0 +1,44 @@
+#ui,
+#monkey,
+#data,
+#all_div ,
+#requests_div{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer
+}
+
+#ui {
+	color: dodgerblue;
+}
+
+#monkey {
+	color: aquamarine;
+}
+
+#data {
+	color: chartreuse;
+}
+
+#gg {
+	background-color: #1D69A9;
+	width: 100%;
+	height: 2.5em;
+	margin: 0 auto;
+	overflow: hidden;
+	position: fixed;
+	bottom: 0;
+	color: black;
+	justify-content: center;
+	text-align: center;
+}
+
+#top_div {
+	width: 100%;
+	height: 3em;
+	display: flex;
+	background-color: #1D69A9;
+	justify-content: center;
+	text-align: center;
+}

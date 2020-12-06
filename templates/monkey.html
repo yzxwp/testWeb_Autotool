@@ -4,32 +4,15 @@
     <meta charset="UTF-8">
     <title>Monke命令生成工具</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <style type="text/css">
-        select {
-            width: auto;
-            padding: 0 41%;
-            margin: 0;
-        }
-
-        option {
-            text-align: center;
-        }
-
-        span {
-            display: block;
-            text-align: right;
-        }
-
-        #from1,#tdiv,#in,#sdiv {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../static/css/monkey.css" type="text/css"/>
+    <link rel="icon" type="image/x-icon" href="../static/ico/1616.ico"/>
 </head>
 <body>
-<div id="fdiv">
+<div id="top_div">
+    <p><b>学习，提高，质量，效率。
+    </b></p>
+</div>
+<div id='fdiv'>
     <from id="from1">
         <table id="table">
             <tr>
@@ -57,18 +40,6 @@
                     <input type="text" v-model="count" id="count">
                 </td>
             </tr>
-            <!--<tr>-->
-            <!--<td>-->
-            <!--<span>日志级别：</span>-->
-            <!--</td>-->
-            <!--<td>-->
-            <!--<select id="log" size="1">-->
-            <!--<option value="log0">0</option>-->
-            <!--<option value="log1">1</option>-->
-            <!--<option value="log2" selected="selected">2</option>-->
-            <!--</select>-->
-            <!--</td>-->
-            <!--</tr>-->
             <tr>
                 <td>
                     <span>重现种子seed：</span>
@@ -159,33 +130,6 @@
                     <!--<input type="radio" name="timeouts" value="no">否-->
                 </td>
             </tr>
-            <!--<tr>-->
-            <!--<td>-->
-            <!--<span>忽略应用程序内可能出现的错误：</span>-->
-            <!--</td>-->
-            <!--<td>-->
-            <!--<input type="radio" name="exceptions " value="yes">是-->
-            <!--<input type="radio" name="exceptions " value="no" checked="checked">否-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td>-->
-            <!--<span>当应用程序发生错误时，应用程序停止并保持当前状态：</span>-->
-            <!--</td>-->
-            <!--<td>-->
-            <!--<input type="radio" name="error " value="yes">是-->
-            <!--<input type="radio" name="error " value="no" checked="checked">否-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td>-->
-            <!--<span>指定是否检视并报告应用程序发生崩溃的本地代码：</span>-->
-            <!--</td>-->
-            <!--<td>-->
-            <!--<input type="radio" name="nativ " value="yes">是-->
-            <!--<input type="radio" name="nativ " value="no" checked="checked">否-->
-            <!--</td>-->
-            <!--</tr>-->
             <tr>
                 <td>
                     <span>正确日志保存路径：</span>
@@ -222,10 +166,15 @@
         <button id="copy" @click="copy">复制</button>
     </div>
     <div id="in">
-        <a href="index1.html">
+        <a href="/">
             <h3>返回首页</h3>
         </a>
     </div>
+</div>
+<div id="gg">
+    <p><b>告知：自动生成的测试数据仅用来测试，禁止用于非法途径。告知：自动生成的测试数据仅用来测试，禁止用于非法途径。
+        告知：自动生成的测试数据仅用来测试，禁止用于非法途径。
+    </b></p>
 </div>
 
 
@@ -360,20 +309,23 @@
                 if (this.monkey_text != "") {
                     this.monkey_text = ""
                 } else {
-                    this.monkey_text = this.head + this.base["b_times_text"] + this.base["b_crashes"] + this.base["b_timeouts"] + this.base["b_package"] + " " + this.base["b_count"] +
-                        this.base["b_seed"] + this.base["b_touch"] + this.base["b_motion"] + this.base["b_trackball"] + this.base["b_nav"]
-                        + this.base["b_najornav"] + this.base["b_syskeys"] + this.base["b_appswitch"] + this.base["b_anyevent"] + this.base["b_view"]
-                        + this.base["b_success"] + this.base["b_error"]
+                    this.monkey_text = this.head + this.base["b_times_text"] + this.base["b_crashes"] + this.base["b_timeouts"] +
+                        this.base["b_package"] + " " + this.base["b_count"] +
+                        this.base["b_seed"] + this.base["b_touch"] + this.base["b_motion"] + this.base["b_trackball"] + this.base[
+                            "b_nav"] +
+                        this.base["b_najornav"] + this.base["b_syskeys"] + this.base["b_appswitch"] + this.base["b_anyevent"] + this
+                            .base["b_view"] +
+                        this.base["b_success"] + this.base["b_error"]
                 }
                 // console.log(this.monkey_text)
             },
 
             copy: function () {
-                var input1 = document.createElement("input");   // 直接构建input
-                input1.value = this.monkey_text;  // 设置内容
+                var input1 = document.createElement("input"); // 直接构建input
+                input1.value = this.monkey_text; // 设置内容
                 document.body.appendChild(input1)
-                input1.select();   // 选择实例内容
-                document.execCommand("Copy");   // 执行复制
+                input1.select(); // 选择实例内容
+                document.execCommand("Copy"); // 执行复制
                 console.log(input1.value)
                 document.body.removeChild(input1); // 删除临时实例
                 // console.log(this.monkey_text)

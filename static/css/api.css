@@ -1,0 +1,32 @@
+#api {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#mid {
+    text-align: right;
+}
+
+#gg {
+    background-color: #1D69A9;
+    width: 100%;
+    height: 2.5em;
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    color: black;
+    justify-content: center;
+    text-align: center;
+}
+
+#top_div {
+    width: 100%;
+    height: 3em;
+    display: flex;
+    background-color: #1D69A9;
+    justify-content: center;
+    text-align: center;
+}
