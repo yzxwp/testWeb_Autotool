@@ -8,8 +8,15 @@ from logic import get_phone
 from logic import get_zhongzhengma
 from logic import get_scoure_card
 from gevent import pywsgi
+import config
+from logic.message import db, Member
 
 app = Flask(__name__)
+# 配置数据库连接
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://%s:%s@%s:%s/%s" % (
+    config.DB_USERNAME, config.DB_PASSWORD, config.DB_HOST, config.DB_PORT, config.DB_NAME)
+db.init_app(app)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -121,10 +128,29 @@ def getMessage():
     return jsonify(data)
 
 
+@app.route("/get_need_message/")
+@app.route("/get_need_message/<condition>", methods=['GET', 'POST'])
+def get_need_message(condition=None):
+    if request.method == 'GET':
+        pass
+    message = ""
+    return message
+
+
+@app.route('/initdb', methods=['GET'])
+def init_db():
+    db.create_all()
+    ret_dic = {
+        'return_code': 200,
+        'return_msg': 'Init db success'
+    }
+    return jsonify(ret_dic)
+
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=80)
     # 106.14.227.119
-    #106.14.227.119
+    # 106.14.227.119
     # server = pywsgi.WSGIServer(('192.168.0.114', 80), app)
     # server = pywsgi.WSGIServer(('', 80), app)
     # server.serve_forever()
